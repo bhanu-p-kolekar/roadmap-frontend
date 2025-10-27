@@ -1,0 +1,150 @@
+/* App.css */
+
+/* Import Inter font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+:root {
+  --gradient-btn: linear-gradient(45deg, magenta, blue);
+  --gradient-title: linear-gradient(
+    45deg,
+    rgb(255, 55, 255),
+    rgb(102, 102, 255)
+  );
+  --gradient-time: linear-gradient(0deg, rgb(255, 166, 0), rgb(255, 234, 0));
+  background-color: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+}
+
+body,
+html,
+.container {
+  margin: 0;
+  padding: 0;
+  background: #1a1a1a;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.topic-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.generate-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-position 0.2s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  /* Default: neutral background so primary-btn class can override */
+  background: #6b7280;
+}
+
+/* When used together with primary-btn, apply the main app accent styling */
+.generate-btn.primary-btn {
+  background-color: #2563eb; /* same as var(--accent) in App.css */
+  background-image: none;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.generate-btn.primary-btn:hover {
+  background-color: #1d4ed8; /* same as var(--accent-hover) */
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.16);
+}
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Roadmap container line update: center alignment */
+.roadmap {
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 0;
+}
+
+.roadmap::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  bottom: 0;
+  width: 2px;
+  background: #555;
+  transform: translateX(-50%);
+}
+
+/* Adjust each step to align center with connector dot */
+.roadmap-step {
+  position: relative;
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 3rem auto;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Center connector dot */
+.roadmap-step::before {
+  content: "";
+  position: absolute;
+  top: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: #444;
+  border: 1px solid rgb(255, 132, 255);
+  border-radius: 50%;
+}
+.step-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  /* gradient text */
+  background: var(--gradient-title);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.step-desc {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.step-time {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  /* magenta–orange gradient text */
+  background: var(--gradient-time);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}

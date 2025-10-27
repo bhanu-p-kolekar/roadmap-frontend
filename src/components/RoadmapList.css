@@ -1,0 +1,14 @@
+.roadmap-list{padding:8px}
+.roadmap-item{background:var(--panel);border-radius:8px;padding:10px;margin-bottom:8px;border:1px solid #eef2ff;display:flex;justify-content:space-between;align-items:center}
+.roadmap-item.active{border-left:4px solid var(--accent)}
+.roadmap-item .meta{color:var(--muted);font-size:12px}
+
+.roadmap-item-meta {
+	font-size: 12px;
+	color: #666;
+}
+
+.roadmap-list-empty {
+	color: #666;
+	padding: 12px;
+}

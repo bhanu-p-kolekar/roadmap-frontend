@@ -1,0 +1,91 @@
+/* ReactFlow Edge and Connection Fixes */
+
+/* Make connections work with node-specific handles */
+.react-flow__handle[data-handleid^="source-"],
+.react-flow__handle[data-handleid^="target-"] {
+  background-color: var(--accent) !important;
+  pointer-events: all !important;
+  cursor: crosshair;
+  z-index: 20;
+}
+
+/* Styles for our compatibility handles */
+.compatibility-handle {
+  opacity: 0.1 !important; /* Very slight visibility for debugging */
+  pointer-events: auto !important; /* Ensure it receives events */
+  z-index: 25 !important; /* Higher than regular handles */
+  background-color: var(--accent) !important;
+  border: 2px solid white !important;
+}
+
+/* Make edges more visible */
+.react-flow__edge path {
+  stroke-width: 2px;
+  pointer-events: all;
+}
+
+.react-flow__edge.selected path,
+.react-flow__edge:hover path {
+  stroke-width: 3px !important;
+}
+
+/* Add debug styling */
+.react-flow__edge {
+  pointer-events: all;
+  z-index: 5;
+}
+
+.react-flow__handle {
+  pointer-events: all;
+  z-index: 10;
+}
+
+/* Make sure the edges are visible */
+.react-flow__edges {
+  z-index: 3;
+}
+
+/* Make sure the connection lines are visible */
+.react-flow__connection-path {
+  stroke: var(--accent);
+  stroke-width: 2px;
+}
+
+/* Add animation for edges in view mode */
+@keyframes flowAnimation {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.react-flow__edge-path {
+  stroke-dasharray: 5, 5;
+  animation: flowAnimation 1s linear infinite;
+}
+
+/* Ensure handles are visible and properly sized */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  border: 2px solid white;
+}
+
+/* Ensure the flow container has proper dimensions */
+.flow-container {
+  width: 100%;
+  /* Ensure the flow container has a definite height so React Flow can render */
+  height: 70vh !important;
+  min-height: 480px;
+  display: block;
+}
+
+/* Make the inner react-flow canvas fill the container */
+.react-flow {
+  width: 100% !important;
+  height: 100% !important;
+}
